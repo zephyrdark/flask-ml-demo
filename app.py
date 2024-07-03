@@ -11,6 +11,10 @@ app = Flask(__name__)
 modelOne = pickle.load(open('model1.pkl', 'rb')) # load model1 to the server, 'rb' - read binary
 df_time_series = pd.read_pickle('model2.pkl') 
 
+@app.route("/")
+def hello():
+    return "Hello Best Team"
+
 @app.route('/model1', methods=['GET'])
 def callModelOne():
     xValue = request.args.get('x', type= int)
